@@ -8,20 +8,25 @@ OBJECTS = build/main.o build/board.o build/board_print_plain.o build/board_print
 
 
 
-OB = build/board.o build/board_print_plain.o build/board_print.o build/input.o 
+OB = build/main_test.o build/board.o build/board_print_plain.o build/board_print.o build/input.o 
 
 
 
-.PHONY: clean all bin build default
+.PHONY: clean all bin build default test
 
 
 
-all: bin build default
+all: bin build default test
 
 
 
 default: bin/prog
 
+
+
+test: bin/prog_test
+
+	bin/prog_test
 
 
 
@@ -54,9 +59,23 @@ build/board_print.o: src/board_print.c src/board.h src/board_print.h src/board_p
 	$(CXX) $(CFLAGS) src/board_print.c -o build/board_print.o
 
 
+
+bin/prog_test: $(OB) 
+
+	$(CXX) $(FLAGS) $(OB) -o bin/prog_test
+
+
+
 build/input.o: src/input.c src/input.h src/board.h
 
 	$(CXX) $(CFLAGS) src/input.c -o build/input.o
+
+
+
+build/main_test.o: test/main.c thirdparty/ctest.h src/board.h src/board_print.h src/board_print_plain.h src/input.h
+
+	$(CXX) $(CFLAGS) -I thirdparty -I src -c test/main.c -o build/main_test.o
+
 
 
 build:
