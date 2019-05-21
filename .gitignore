@@ -1,5 +1,2 @@
-keymain*
-*.swp
-*.o
-*.gch
-*.exe
+build/*.o 
+bin/*
