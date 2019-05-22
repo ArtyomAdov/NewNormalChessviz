@@ -8,8 +8,6 @@ script:
 
   - make
 
-  - ./bin/NewNormalChessviz-test
-
 compiler:
 
 - gcc
