@@ -10,18 +10,18 @@ int main()
 
 {
 
-    char deck[8][8];
+  char deck[8][8];
 
-    board_print(deck);
+  board_print(deck);
 
-    while (1)
+  while (1)
 
-    {
+  {
 
-        printDeck(deck);
+    printDeck(deck);
 
-        check(deck, 0);
-    }
+    check(deck, 0);
+  }
 
-    return 0;
+  return 0;
 }
